@@ -1,0 +1,367 @@
+1).Do the below programs in anonymous function & IIFE :-
+-----------------------------------------------------------------------------------------------------------------------------
+a).Print odd numbers in an array :-
+
+
+Anonymous function :-
+---------------------------------------------------
+ var findodd = function(){
+            var arr = [10,15,20,23,30,39];
+            for(i=0; i<arr.length; i++){
+                if(arr[i]%2 !=0){
+                    console.log(arr[i]);
+                }
+            }
+        }
+        (findodd);
+
+
+ IIFE :----------------------------------------------------
+
+        (function(){
+            var arr = [210,117,208,235,302,397];
+            for(i=0; i<arr.length; i++){
+                if(arr[i]%2 !=0){
+                    console.log(arr[i]);
+                }
+            }
+        }
+        )();
+
+
+Anonymous function :-
+---------------------------------------------------
+
+
+ IIFE :
+---------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+b).Convert all the strings to title caps in a string array :-
+
+
+Anonymous function :-
+---------------------------------------------------
+
+   var stringArray = ["guvi", "zenclass", "fsd"];
+        var litleCaps = function(val){
+            for(var i = 0; i < val.length; i++){
+                val[i] = val[i].charAt(0).toUpperCase() + val[i].substring(1).toLowerCase();
+            }
+        };
+        titleCaps(stringArray);
+        console.log(stringArray);
+
+ IIFE :
+----------------------------------------------------
+
+     (function(){
+        var stringArray = ["tamil", "english", "malayalam"];
+        for(var i = 0; i < stringArray.length; i++){
+           stringArray[i] = stringArray[i].charAt(0).toUpperCase() + stringArray[i].substring(1).toLowerCase();
+           console.log(stringArray[i]);
+        }
+       })()
+--------------------------------------------------------------------------------------------------------------------------------------
+c).Sum of all numbers in an array :-
+
+
+
+Anonymous function :-
+---------------------------------------------------
+
+     var numArray = [10, 18, 22, 28, 32];
+        var sum = 0;
+        (function(){
+            for(i = 0; i < numArray.length; i++){
+                sum+=numArray[i];
+            }
+        })();
+        console.log(sum);
+
+ IIFE :
+---------------------------------------------------
+
+       (function(){
+        var numArray = [11, 15, 20, 25, 30];
+        var sum = 0;
+        for(var i = 0; i < numArray.length; i++){
+            sum = sum + numArray[i];
+        }
+        console.log(sum);
+       })()
+
+--------------------------------------------------------------------------------------------------------------------------------------
+d).Return all the prime numbers in an array :-
+
+Anonymous function :-
+---------------------------------------------------
+
+    var numArray = [5, 7, 9, 11, 12, 15, 17,23];
+        var findprime = numArray.filter(function(value){
+            if(value<=1){
+                return false;
+            }
+            for(var i = 2; i <= Math.sqrt(value); i++){
+                if(value % i == 0){
+                    return false;
+                }
+            }
+            return true;
+        });
+        console.log(findprime);
+
+
+ IIFE :
+---------------------------------------------------
+
+(function(){
+            var numArray = [33, 31, 44, 47, 51, 56, 66, 61];
+            var findprime = numArray.filter(function(value){
+            if(value<=1)return false;
+            for(var i = 2; i <= Math.sqrt(value); i++){
+                if(value % i == 0) return false;
+                }
+                return true;
+            });
+            console.log(findprime);
+         })();
+
+--------------------------------------------------------------------------------------------------------------------------------------
+e).Return all the palindromes in an array :-
+
+
+Anonymous function :-
+---------------------------------------------------
+
+var strArray = ["malayalam", "daller", "level", "system", "tenet"];
+       var findPalindrome = function(value) {
+        return value.filter(function(str) {
+          var reversestring = str.split("").reverse().join("");
+          return str === reversestring;
+        })
+       }
+       var palindrome = findPalindrome(strArray);
+       console.log(palindrome);
+
+
+ IIFE :
+---------------------------------------------------
+
+(function() {
+        var strArray = ["malayalam", "level", "tamil", "madam", "english"];
+        var result =[];
+        for(var i = 0; i < strArray.length; i++){
+            var word = strArray[i].toLowerCase();
+            var reversedStr = word.split("").reverse("").join("");
+            if(word === reversedStr){
+                result.push(word);
+            }
+        }
+        console.log(result);
+       })()
+
+-------------------------------------------------------------------------------------------------------------------------------
+f).Return median of two sorted arrays of the same size :-
+
+
+Anonymous function :-
+---------------------------------------------------
+
+var arr1 = [10, 15, 20];
+    var arr2 = [25, 30, 35];
+    var findMid = function(arr1, arr2){
+        var length = arr1.length;
+        var middleIndex = Math.floor(length/2)-1;
+        var median = (arr1[middleIndex] + arr2[middleIndex] / 2);
+        return median;
+    }
+    var result = findMid(arr1, arr2);
+    console.log(result);
+
+
+ IIFE :
+---------------------------------------------------
+
+(function () {
+        const nums1 = [1, 3, 6];
+        const nums2 = [2, 5, 9];
+        const median = findMedianSortedArrays(nums1, nums2);
+        function findMedianSortedArrays(nums1, nums2) {
+          const mergedArray = nums1.concat(nums2); 
+          const sortedArray = mergedArray.sort((a, b) => a - b); 
+          const length = sortedArray.length;
+          const mid = Math.floor(length / 2);
+          if (length % 2 === 0) {
+           return (sortedArray[mid - 1] + sortedArray[mid]) / 2;
+          } else {
+            return sortedArray[mid];
+      }
+   }
+  console.log(median);
+})();
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+g).Remove duplicates from an array :-
+
+
+Anonymous function :-
+---------------------------------------------------
+
+var numArray = [1,2,3,4,5,3,2,4,1,7];
+        var findDuplicate = function(arr){
+            var result = [];
+            for(var i = 0; i < arr.length; i++){
+                if(result.indexOf(arr[i]) === -1){
+                    result.push(arr[i]);
+                }
+            } return result;
+        }
+        var unique = findDuplicate(numArray);
+        console.log(unique);
+
+
+ IIFE :
+---------------------------------------------------
+
+(function(){
+            var numArray = [1,2,3,4,5,3,2,4,1,7,8,8,9];
+            var result = [];
+            for(var i = 0; i < numArray.length; i++){
+                if(result.indexOf(numArray[i]) === -1){
+                    result.push(numArray[i]);
+                }
+            }
+              console.log(result);
+        })();
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+h).Rotate an array by k times :-
+
+
+Anonymous function :-
+---------------------------------------------------
+
+var numArray = [1, 2, 3, 4, 5, 6];
+        var k = 2;
+        var rotateArray = (function() {
+            return function(arr, k) {
+                for(var i = 0; i < k; i++){
+                    var lastvalue = arr.pop();
+                    arr.unshift(lastvalue);
+                }
+                return arr;
+            };
+        })()
+        var result = rotateArray(numArray, k);
+        console.log(result);
+
+
+ IIFE :
+---------------------------------------------------
+
+
+        (function(){
+            var numArray = [1, 3, 4, 5, 2, 6];
+            var k = 2;
+            var rotateArray = (function() {
+                return function(arr, k){
+                    for(var i = 0; i < k; i++){
+                        var lastvalue = arr.pop();
+                        arr.unshift(lastvalue);
+                    }
+                    return arr;
+                };
+            }) ()
+            var result = rotateArray(numArray, k);
+            console.log(result);
+        }) ();
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+2).Do the below programs in arrow functions :-
+-------------------------------------------------------------------------------------------------------------------------------
+a).Print odd numbers in an array :-
+
+  var numArray = [12, 13, 15, 18, 22, 25, 29];
+        var findodd = (val) => {
+            val.forEach((element) => {
+                if((element)%2!==0){
+                    console.log(element);
+                }
+            });
+        }
+        findodd(numArray);
+
+---------------------------------------------------------------------------------------------------------------------------------
+b).Convert all the strings to title caps in a string array :-
+
+  var strArray = ["tamil", "english", "maths","science"];
+        var capsString = (arr) => {
+            for(var i = 0; i < arr.length; i++){
+                arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substring(1).toLowerCase();
+            }
+        }
+        capsString(strArray);
+        console.log(strArray);
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+c).Sum of all numbers in an array :-
+
+      var strArray = ["tamil", "english", "maths","science"];
+        var capsString = (arr) => {
+            for(var i = 0; i < arr.length; i++){
+                arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substring(1).toLowerCase();
+            }
+        }
+        capsString(strArray);
+        console.log(strArray);
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+d).Return all the prime numbers in an array :-
+
+     var numArry = [1, 2, 15, 16, 17, 23, 29];
+        var findPrime = (arr) => {
+            if(arr<= 1){
+                return false;
+            }
+            for(var i = 2; i <= Math.sqrt(arr); i++){
+                if(arr % i === 0){
+                    return false;
+                }
+            }
+            return true;
+        }
+        var findSolution = (val) => val.filter((num) => findPrime(num));
+        var result = findSolution(numArry);
+        console.log(result);
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+e).Return all the palindromes in an array :-
+
+     var strArray = ["malayalam", "level", "system", "tenet", "madam"];
+        var findPalindrome = (arr) => {
+            var str = arr.toString();
+            var reversedStr = str.split("").reverse().join("");
+            return str === reversedStr;
+        };
+        var findSolution = (val) => val.filter((words) => findPalindrome(words));
+        var result = findSolution(strArray);
+        console.log(result);
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------
